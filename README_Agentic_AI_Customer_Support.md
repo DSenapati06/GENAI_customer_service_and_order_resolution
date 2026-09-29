@@ -186,6 +186,173 @@ flowchart TD
 
 ------------------------------------------------------------------------
 
+## 📦 requirements.txt
+
+### API / Validation
+
+```txt
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+httpx
+```
+
+### LLM + Agent Framework
+
+```txt
+openai
+langchain
+langchain-core
+langchain-openai
+langchain-community
+langgraph
+```
+
+### Multi-Agent / Supervisor
+
+```txt
+langgraph-supervisor
+```
+
+### RAG — Document Processing
+
+```txt
+pypdf
+langchain-text-splitters
+```
+
+### Vector Database / PostgreSQL
+
+```txt
+langchain-postgres
+psycopg[binary]
+pgvector
+```
+
+### Memory / State
+
+```txt
+redis
+langgraph-checkpoint-postgres
+```
+
+### MCP — Tool Integration
+
+```txt
+mcp
+```
+
+### Async Processing / Kafka
+
+```txt
+confluent-kafka
+```
+
+### Retry / Resilience
+
+```txt
+tenacity
+```
+
+### Observability / Tracing / Evals
+
+```txt
+langsmith
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+```
+
+### Testing
+
+```txt
+pytest
+pytest-asyncio
+```
+
+---
+
+## Complete `requirements.txt`
+
+Copy this section into the actual `requirements.txt` file:
+
+```txt
+# API
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+httpx
+
+# LLM / Agent
+openai
+langchain
+langchain-core
+langchain-openai
+langchain-community
+langgraph
+langgraph-supervisor
+
+# RAG
+pypdf
+langchain-text-splitters
+
+# Vector DB
+langchain-postgres
+psycopg[binary]
+pgvector
+
+# Memory / State
+redis
+langgraph-checkpoint-postgres
+
+# MCP
+mcp
+
+# Kafka
+confluent-kafka
+
+# Retry
+tenacity
+
+# Observability / Evals
+langsmith
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+
+# Testing
+pytest
+pytest-asyncio
+```
+
+## Quick Interview Mapping
+
+| Requirement | Purpose |
+|---|---|
+| `fastapi` | REST API |
+| `pydantic` | Request/response validation |
+| `langgraph` | Agent orchestration and workflow |
+| `langgraph-supervisor` | Multi-agent supervisor |
+| `langchain-openai` | LLM + embeddings |
+| `langchain-text-splitters` | RAG chunking |
+| `langchain-postgres` / `pgvector` | Vector storage and retrieval |
+| `redis` | Fast state/cache |
+| `langgraph-checkpoint-postgres` | Durable agent checkpoints |
+| `mcp` | MCP integration |
+| `confluent-kafka` | Async/event processing |
+| `tenacity` | Retry/backoff |
+| `langsmith` | Agent tracing/evaluation |
+| `opentelemetry-*` | Application observability |
+| `pytest` | Automated testing |
+
+> **Interview memory:**  
+> `FastAPI → LangGraph → LLM → RAG → pgvector → MCP → Multi-Agent → Kafka → Observability → Evals`
+
+> **Production note:** Pin package versions after testing the compatible dependency set rather than leaving production dependencies unversioned.
+
+
 # 📚 Important Python Libraries
 
 ``` python
